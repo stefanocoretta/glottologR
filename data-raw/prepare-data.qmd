@@ -1,0 +1,45 @@
+---
+title: "Prepare data"
+format: html
+editor: visual
+---
+
+## Attach packages
+
+```{r pkgs}
+library(tidyverse)
+```
+
+## Read data from Glottolog CLDF
+
+```{r read}
+languages <- read_csv("https://raw.githubusercontent.com/glottolog/glottolog-cldf/c8eefe82b4c87f3c566a8e5181bacf714661e18e/cldf/languages.csv") %>%
+  select(Language_ID, Glottocode, Name, Macroarea, Latitude, Longitude, Countries, Family_ID)
+
+values <- read_csv("https://raw.githubusercontent.com/glottolog/glottolog-cldf/c8eefe82b4c87f3c566a8e5181bacf714661e18e/cldf/values.csv")
+```
+
+## Wrangle data
+
+```{r aes-med}
+aes <- values %>%
+  filter(Parameter_ID == "aes") %>%
+  select(Language_ID, AES_value = Value, AES = Code_ID) %>%
+  mutate(AES = str_remove(AES, "aes-"))
+
+med <- values %>%
+  filter(Parameter_ID == "med") %>%
+  select(Language_ID, MED_value = Value, MED = Code_ID) %>%
+  mutate(MED = str_remove(MED, "med-"))
+```
+
+```{r glottolog}
+glottolog <- languages %>%
+  left_join(aes) %>%
+  left_join(med) %>%
+  arrange(Glottocode)
+```
+
+```{r save}
+usethis::use_data(glottolog, overwrite = TRUE)
+```

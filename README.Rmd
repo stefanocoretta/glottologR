@@ -1,0 +1,40 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# glottologR
+
+<!-- badges: start -->
+`r badger::badge_devel(pkg = "phonetisr", color = "orange")`
+<!-- badges: end -->
+
+glottologR provides users with a data table of the Glottolog data (version 4.6).
+
+## Installation
+
+You can install the development version of glottologR like so:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("stefanocoretta/glottologR")
+```
+
+## Usage
+
+To load the data:
+
+``` r
+library(glottologR)
+data(glottolog)
+```

@@ -1,0 +1,33 @@
+Package: glottologR
+Type: Package
+Title: Data from Glottolog 4.6
+Version: 0.1.0.9000
+Authors@R: 
+    c(person(given = "Stefano",
+             family = "Coretta",
+             role = c("aut", "cre"),
+             email = paste0("stefano.coretta", "@", "gmail.com"),
+             comment = c(ORCID = "0000-0001-9627-5532")),
+      person(given = "Harald",
+             family = "Hammarström",
+             role = c("cph", "dtc"),
+             comment = "Authors of Glottolog"),
+      person(given = "Robert",
+             family = "Forkel",
+             role = c("cph", "dtc"),
+             comment = "Authors of Glottolog"),
+      person(given = "Martin",
+             family = "Haspelmath",
+             role = c("cph", "dtc"),
+             comment = "Authors of Glottolog"),
+      person(given = "Sebastian",
+             family = "Bank",
+             role = c("cph", "dtc"),
+             comment = "Authors of Glottolog"))
+Description: It provides data from the Glottolog database (version 4.6).
+License: CC BY 4.0
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    R (>= 2.10)
+RoxygenNote: 7.2.0
