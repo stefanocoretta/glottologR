@@ -14,7 +14,10 @@ library(tidyverse)
 
 ```{r read}
 languages <- read_csv("https://raw.githubusercontent.com/glottolog/glottolog-cldf/c8eefe82b4c87f3c566a8e5181bacf714661e18e/cldf/languages.csv") %>%
-  select(Language_ID, Glottocode, Name, Macroarea, Latitude, Longitude, Countries, Family_ID)
+  select(Language_ID, Glottocode, Name, Macroarea, Latitude, Longitude, Countries, Family_ID) %>%
+  mutate(
+    Language_ID = ifelse(is.na(Language_ID), Glottocode, Language_ID)
+  )
 
 values <- read_csv("https://raw.githubusercontent.com/glottolog/glottolog-cldf/c8eefe82b4c87f3c566a8e5181bacf714661e18e/cldf/values.csv")
 ```
