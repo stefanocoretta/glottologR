@@ -13,11 +13,7 @@ library(tidyverse)
 ## Read data from Glottolog CLDF
 
 ```{r read}
-languages <- read_csv("https://raw.githubusercontent.com/glottolog/glottolog-cldf/c8eefe82b4c87f3c566a8e5181bacf714661e18e/cldf/languages.csv") %>%
-  select(Language_ID, Glottocode, Name, Macroarea, Latitude, Longitude, Countries, Family_ID) %>%
-  mutate(
-    Language_ID = ifelse(is.na(Language_ID), Glottocode, Language_ID)
-  )
+languages <- read_csv("https://raw.githubusercontent.com/glottolog/glottolog-cldf/c8eefe82b4c87f3c566a8e5181bacf714661e18e/cldf/languages.csv")
 
 values <- read_csv("https://raw.githubusercontent.com/glottolog/glottolog-cldf/c8eefe82b4c87f3c566a8e5181bacf714661e18e/cldf/values.csv")
 ```
@@ -27,22 +23,18 @@ values <- read_csv("https://raw.githubusercontent.com/glottolog/glottolog-cldf/c
 ```{r aes-med}
 aes <- values %>%
   filter(Parameter_ID == "aes") %>%
-  select(Language_ID, AES_value = Value, AES = Code_ID) %>%
-  mutate(AES = str_remove(AES, "aes-"))
+  mutate(AES = str_remove(Code_ID, "aes-")) %>%
+  left_join(y = languages, by = c("Language_ID" = "ID"))
 
 med <- values %>%
   filter(Parameter_ID == "med") %>%
-  select(Language_ID, MED_value = Value, MED = Code_ID) %>%
-  mutate(MED = str_remove(MED, "med-"))
-```
-
-```{r glottolog}
-glottolog <- languages %>%
-  left_join(aes) %>%
-  left_join(med) %>%
-  arrange(Glottocode)
+  mutate(MED = str_remove(Code_ID, "med-")) %>%
+  left_join(y = languages, by = c("Language_ID" = "ID"))
 ```
 
 ```{r save}
-usethis::use_data(glottolog, overwrite = TRUE)
+usethis::use_data(languages, overwrite = TRUE)
+usethis::use_data(values, overwrite = TRUE)
+usethis::use_data(aes, overwrite = TRUE)
+usethis::use_data(med, overwrite = TRUE)
 ```

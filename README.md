@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![](https://img.shields.io/badge/devel%20version-0.2.0-orange.svg)](https://github.com/phonetisr)
+[![](https://img.shields.io/badge/devel%20version-0.3.0-orange.svg)](https://github.com/phonetisr)
 <!-- badges: end -->
 
 glottologR provides users with a data table of the Glottolog data
@@ -17,7 +17,7 @@ You can install the development version of glottologR like so:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("stefanocoretta/glottologR@v0.2.0")
+remotes::install_github("stefanocoretta/glottologR@v0.3.0")
 ```
 
 ## Usage
@@ -26,5 +26,6 @@ To load the data:
 
 ``` r
 library(glottologR)
-data(glottolog)
+data("languages")
+data("aes")
 ```
