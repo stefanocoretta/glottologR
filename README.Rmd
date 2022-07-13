@@ -27,7 +27,7 @@ You can install the development version of glottologR like so:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("stefanocoretta/glottologR@v0.3.0")
+remotes::install_github("stefanocoretta/glottologR@v0.4.0")
 ```
 
 ## Usage
@@ -37,5 +37,5 @@ To load the data:
 ``` r
 library(glottologR)
 data("languages")
-data("aes")
+data("glot_aes")
 ```

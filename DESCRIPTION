@@ -1,8 +1,8 @@
 Package: glottologR
 Type: Package
 Title: Data from Glottolog 4.6
-Version: 0.3.0
-Date: 2022-06-12
+Version: 0.4.0
+Date: 2022-07-13
 Authors@R: 
     c(person(given = "Stefano",
              family = "Coretta",
