@@ -62,7 +62,7 @@
 #'   \item{Language_ID.y}{Language ID.}
 #' }
 #' @source \url{https://glottolog.org}
-"aes"
+"glot_aes"
 
 #' Glottolog 4.6 data: Agglomerated Endangerment Status
 #'
@@ -90,4 +90,4 @@
 #'   \item{Language_ID.y}{Language ID.}
 #' }
 #' @source \url{https://glottolog.org}
-"med"
+"glot_med"

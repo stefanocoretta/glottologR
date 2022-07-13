@@ -1,3 +1,12 @@
+# glottologR 0.4.0
+
+## Breaking changes
+
+* The tibbles `aes` and `med` have been renamed to `glot_aes` and `glot_med`.
+
+
+
+
 # glottologR 0.3.0
 
 ## Breaking changes

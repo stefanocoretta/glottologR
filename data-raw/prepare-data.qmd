@@ -21,12 +21,12 @@ values <- read_csv("https://raw.githubusercontent.com/glottolog/glottolog-cldf/c
 ## Wrangle data
 
 ```{r aes-med}
-aes <- values %>%
+glot_aes <- values %>%
   filter(Parameter_ID == "aes") %>%
   mutate(AES = str_remove(Code_ID, "aes-")) %>%
   left_join(y = languages, by = c("Language_ID" = "ID"))
 
-med <- values %>%
+glot_med <- values %>%
   filter(Parameter_ID == "med") %>%
   mutate(MED = str_remove(Code_ID, "med-")) %>%
   left_join(y = languages, by = c("Language_ID" = "ID"))
@@ -35,6 +35,6 @@ med <- values %>%
 ```{r save}
 usethis::use_data(languages, overwrite = TRUE)
 usethis::use_data(values, overwrite = TRUE)
-usethis::use_data(aes, overwrite = TRUE)
-usethis::use_data(med, overwrite = TRUE)
+usethis::use_data(glot_aes, overwrite = TRUE)
+usethis::use_data(glot_med, overwrite = TRUE)
 ```
