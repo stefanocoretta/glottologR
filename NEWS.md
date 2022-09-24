@@ -1,3 +1,11 @@
+# glottologR 0.4.1
+
+## Development
+
+* Updated development packages.
+
+
+
 # glottologR 0.4.0
 
 ## Breaking changes
