@@ -23,7 +23,10 @@ values <- read_csv("https://raw.githubusercontent.com/glottolog/glottolog-cldf/c
 ```{r aes-med}
 glot_aes <- values %>%
   filter(Parameter_ID == "aes") %>%
-  mutate(AES = str_remove(Code_ID, "aes-")) %>%
+  mutate(
+    AES = str_remove(Code_ID, "aes-"),
+    AES = factor(AES, levels = c("not_endangered", "threatened", "shifting", "moribund", "nearly_extinct", "extinct"))
+  ) %>%
   left_join(y = languages, by = c("Language_ID" = "ID"))
 
 glot_med <- values %>%

@@ -1,3 +1,11 @@
+# glottologR 0.4.2
+
+## Changed
+
+* `AES` in `glot_aes` is now a factor.
+
+
+
 # glottologR 0.4.1
 
 ## Development

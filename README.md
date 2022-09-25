@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![](https://img.shields.io/badge/devel%20version-0.4.1-orange.svg)](https://github.com/phonetisr)
+[![](https://img.shields.io/badge/devel%20version-0.4.2-orange.svg)](https://github.com/phonetisr)
 <!-- badges: end -->
 
 glottologR provides users with a data table of the Glottolog data
